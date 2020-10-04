@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+   	 <div class="col-md-4 col-lg-offset-4">
+		<h4 style="font-size:large;font-weight: bolder;">Prediction</h4>
+			{% if result[0] == result_max %}
+   		 	<h4 style="color:green;font-size:large;font-weight: bold;">Class 1</h4>
+			    {% elif result[1] == result_max %}
+			    <h4 style="color:green;font-size:large;font-weight: bold;">Class 2</h4>
+   		 	{% elif result[2] == result_max %}
+   			 <h4 style="color:green;font-size:large;font-weight: bold;">Class 3</h4>
+   		 {% endif %}
+	</div>
+		
+   	 <div class="col-md-4 col-lg-offset-4">
+		<img src="data:image/jpg;base64, {{encoded_photo | safe}}" width="50%"></img>
+	</div>		
+
+   	 <div class="col-md-4 col-lg-offset-4">
+		<p style="color:red;font-size:large;font-weight: bolder;">Confidence Level (%):</p>			
+		<p><b>Class 1:</b> {% print(result[0]) %}</p>
+		<p><b>Class 2:</b> {% print(result[1]) %}</p>
+		<p><b>Class 3:</b> {% print(result[2]) %}</p>
+	</div>   	 
+    
+{% endblock %}

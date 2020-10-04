@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<p>{% print(result) %}</p>
+   	 <div class="col-md-4 col-lg-offset-4">
+        	{% if result == "0" %}
+   		 	<h4 style="color:green;">Class 1</h1>
+			    {% elif result == "1" %}
+			    <h4 style="color:green;">Class 2</h1>
+   		 {% elif result == "2" %}
+   			 <h4 style="color:green;">Class 3</h1>
+   		 {% endif %}
+   	 </div>
+   	 
+   	 <div class="col-md-4 col-lg-offset-4">
+   		 <img src="data:image/jpg;base64, {{encoded_photo | safe}}" width="50%">
+   	 </div>
+    
+{% endblock %}
